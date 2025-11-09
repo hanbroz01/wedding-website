@@ -1,216 +1,220 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Han & Keeley — 23 April 2026</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keeley & Han — 23.04.2026</title>
 
-  <!-- Google Fonts (can be left as-is or replaced) -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <meta name="description" content="Han & Keeley — Wedding 23 April 2026. Venue: Seeschüne, Buldern. RSVP and info." />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
+
 
   <style>
-    :root{
-      --bg:#fbfbf9;
-      --card:#ffffff;
-      --muted:#6b6b6b;
-      --accent:#2f6f55; /* eucalyptus green */
-      --accent-2:#b08b4a; /* gold trim */
-      --glass: rgba(255,255,255,0.7);
-      --radius:14px;
-      --max:1080px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      background:linear-gradient(180deg, #fbfbf9 0%, #f6f6f4 100%);
-      color:#222;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: #faf9f7;
+      color: #333;
     }
 
-    header{padding:28px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .logo{display:flex;align-items:center;gap:12px}
-    .monogram{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#6aa47a);display:flex;align-items:center;justify-content:center;color:white;font-family:'Playfair Display',serif;font-weight:600}
-    nav a{margin-left:14px;text-decoration:none;color:var(--muted);font-weight:600;font-size:14px}
-    nav a:hover{color:var(--accent)}
-
-    .hero{
-      max-width:var(--max);
-      margin:18px auto 28px;
-      padding:40px 22px;
-      border-radius:18px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
-      box-shadow:0 8px 30px rgba(31,31,31,0.06);
-      display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:center;
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
     }
 
-    .title{font-family:'Playfair Display',serif;font-size:40px;margin:0;color:#143726}
-    .date{margin-top:6px;color:var(--muted);font-weight:600}
-    .venue{margin-top:14px;color:#334;}
-
-    .hero-card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(176,139,74,0.08)}
-    .cta{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#5ea373);color:white;text-decoration:none;font-weight:600}
-
-    main{max-width:var(--max);margin:18px auto;padding:0 20px}
-    section{margin:26px 0}
-    h2{font-family:'Playfair Display',serif;margin:0 0 12px 0;font-size:22px;color:#163b2e}
-    p.lead{color:var(--muted)}
-
-    .two-col{display:grid;grid-template-columns:1fr 320px;gap:20px}
-    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)}
-
-    /* Accommodations list */
-    .accom-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-    .accom{padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.95),rgba(250,250,250,0.95));border:1px solid rgba(0,0,0,0.03)}
-    .accom h3{margin:0 0 6px 0;font-size:16px}
-    .muted{color:var(--muted);font-size:14px}
-
-    /* RSVP iframe wrapper responsive */
-    .iframe-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.04)}
-    iframe{width:100%;height:700px;border:0}
-
-    footer{max-width:var(--max);margin:40px auto;padding:20px;text-align:center;color:var(--muted);font-size:14px}
-
-    /* Mobile adjustments */
-    @media (max-width:860px){
-      .hero{grid-template-columns:1fr;}
-      .two-col{grid-template-columns:1fr}
-      nav{display:none}
-      .hero{padding:24px}
-      iframe{height:900px}
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background-image: url('hero.jpg'); /* Replace with your own */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.4);
     }
 
+    .hero h1 {
+      font-size: 4rem;
+      margin: 0;
+      font-weight: 300;
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    /* Section layout */
+    section {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      font-weight: 300;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: goldenrod;
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    h7 {
+      font-weight: 300;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #5f8575;
+    }
+
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: black;
+      text-align: center;
+      font-family: 'Nanum Gothic', sans-serif;
+
+    }
+
+    /* Image strip sections */
+    .photo-strip {
+      height: 70vh;
+      background-size: cover;
+      background-position: center;
+      margin: 60px 0;
+    }
+
+    /* RSVP Button */
+    .rsvp-button {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #c3a663; /* muted gold */
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <div class="monogram">H&K</div>
-      <div>
-        <div style="font-weight:700">Han & Keeley</div>
-        <div style="font-size:13px;color:var(--muted)">23 April 2026 — Seeschüne, Buldern</div>
-      </div>
-    </div>
-    <nav aria-label="Main navigation">
-      <a href="#info">Info</a>
-      <a href="#accommodation">Accommodation</a>
-      <a href="#rsvp">RSVP</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <div class="hero">
-    <div>
-      <h1 class="title">Han & Keeley</h1>
-      <div class="date">23 April 2026 — Seeschüne, Buldern</div>
-      <p class="venue">A small, elegant ceremony with close family and friends — eucalyptus accents and gentle gold details.</p>
 
-      <div style="display:flex;gap:10px;margin-top:18px;align-items:center">
-        <a class="cta" href="#rsvp">RSVP now</a>
-        <a style="margin-left:8px;color:var(--muted);text-decoration:underline" href="#accommodation">Accommodation</a>
-      </div>
-    </div>
 
-    <aside class="hero-card">
-      <strong style="display:block">Venue</strong>
-      <div class="muted" style="margin-top:8px">Seeschüne, Buldern</div>
-      <div style="margin-top:12px;font-size:14px;color:var(--muted)">Ceremony 15:00 • Reception follows</div>
-      <div style="margin-top:14px;font-weight:600;color:var(--accent-2)">Dress: Smart / Elegant</div>
-    </aside>
+  <!-- Hero Section -->
+<div class="hero-section">
+  <h1>Keeley & Han</h1>
+  <p>23.04.2026 | Buldern</p>
+</div>
+
+
+  <!-- Our Story -->
+  <section id="story">
+    <h2>Happily Ever After Starts Here... </h2><br>
+
+    <h7>
+
+
+    </h7>
+    
+    <p>
+      
+      Keeley and Han joyfully request the pleasure of<br> 
+      your company as we say our "I do's" and celebrate<br>
+      are marriage with our family and friends. 
+    </p>
+  </section>
+
+  <!-- Photo Break -->
+  <div class="photo-strip" style="background-image:url('images/strip1.jpg');"></div>
+
+  <!-- The Day Section with Background Image -->
+<section id="details" class="text-over-photo">
+  <div class="overlay">
+    <h2>On The Day...</h2>
+    <p>
+      All key times and the schedule of celebrations are included in your invitation. <br>
+      We kindly ask that you arrive punctually to enjoy the day with us. 
+    </p>
   </div>
+</section>
 
-  <main>
-    <section id="info">
-      <h2>Event Information</h2>
-      <p class="lead">Welcome — we are so excited to celebrate with you. Below you will find practical information about the day, venue and travel. Please RSVP using the form on this page.</p>
+  <!-- Photo Break -->
+  <div class="photo-strip" style="background-image:url('images/strip2.jpg');"></div>
+  
 
-      <div class="two-col">
-        <div class="card">
-          <h3>Schedule (high level)</h3>
-          <p class="muted">15:00 — Ceremony<br>16:30 — Drinks & Photos<br>18:00 — Reception & Dinner</p>
-          <h3 style="margin-top:12px">Getting there</h3>
-          <p class="muted">Seeschüne is in Buldern — there is limited parking at the venue. We recommend carpooling or local taxis. For international guests we recommend arriving via Münster/Osnabrück (FMO) or Düsseldorf (DUS).</p>
-        </div>
+  <section id="accommodation">
+    <h2>The Important Things...</h2>
+    <br>
+    <p>Accommodation Reccomendations:<br>
+      &hearts;<br>
 
-        <div class="card">
-          <h3>Dress code</h3>
-          <p class="muted">Smart / Elegant — light colours encouraged. Eucalyptus accents & gold trims will be part of decorations.</p>
-          <h3 style="margin-top:12px">Accessibility</h3>
-          <p class="muted">Venue is partially accessible. If you have specific requirements, please contact us via email below.</p>
-        </div>
-      </div>
-    </section>
+    <a href="https://www.booking.com/hotel/de/hotel-van-lendt.en-gb.html?label=de-country-EPDQgClKydO2R4BhgfgQhwS701061379648%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-8197775507%3Alp9043958%3Ali%3Adec%3Adm&aid=2421668&ucfs=1&checkin=2025-11-14&checkout=2025-11-15&dest_id=-1754787&dest_type=city&group_adults=2&no_rooms=1&group_children=0&srpvid=ece2134bd7642c50dfbcfbc855ec38ba&srepoch=1762697911&matching_block_id=126962004_392835853_2_2_0&atlas_src=sr_iw_title" target="_blank" rel="noopener noreferrer">
+  Hotel Van Lendt – Buldern
+  </a><br>
+  <a href="https://www.booking.com/hotel/de/schone-ferienwohnung-in-dulmen.en-gb.html?label=de-country-EPDQgClKydO2R4BhgfgQhwS701061379648%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-8197775507%3Alp9043958%3Ali%3Adec%3Adm&aid=2421668&ucfs=1&checkin=2025-11-14&checkout=2025-11-15&dest_id=-1754787&dest_type=city&group_adults=2&no_rooms=1&group_children=0&srpvid=ece2134bd7642c50dfbcfbc855ec38ba&srepoch=1762698063&matching_block_id=1197385301_392032733_2_32_0&atlas_src=sr_iw_title" target="_blank" rel="noopener noreferrer">
+    Schöne Ferienwohnung in Dülmen – Dülmen
+  </a><br>
+  <a href="https://www.booking.com/hotel/de/merfelder-hof.en-gb.html?label=de-country-EPDQgClKydO2R4BhgfgQhwS701061379648%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-8197775507%3Alp9043958%3Ali%3Adec%3Adm&aid=2421668&ucfs=1&checkin=2025-11-14&checkout=2025-11-15&dest_id=-1754787&dest_type=city&group_adults=2&no_rooms=1&group_children=0&srpvid=ece2134bd7642c50dfbcfbc855ec38ba&srepoch=1762698063&matching_block_id=32186309_93904008_2_2_0&atlas_src=sr_iw_title" target="_blank" rel="noopener noreferrer">
+  Merfelder Hof – Dülmen
+</a>
 
-    <section id="accommodation">
-      <h2>Accommodation</h2>
-      <p class="lead">Here are suggested hotels and nearby options for guests. We recommend booking soon as availability can be limited.</p>
+<section id="location">
+  
+  <div class="map-wrapper">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2463.625701372077!2d7.3510725!3d51.8677902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b9ab08e99fabc3%3A0x5cff2f88bb32eb2a!2sSEESCHEUNE%20-%20DIE%20EVENTLOCATION%20IM%20M%C3%9CNSTERLAND!5e0!3m2!1sen!2sde!4v1762705161014!5m2!1sen!2sde" 
+      width="100%" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
 
-      <div class="accom-list">
-        <div class="accom">
-          <h3>Seaside Hotel Buldern</h3>
-          <div class="muted">10 min drive — Comfort rooms, breakfast included</div>
-          <div style="margin-top:8px"><a href="#" style="color:var(--accent)">Book / Info</a></div>
-        </div>
+<p>Getting Around:<br>
+  &hearts;<br>
+  The Wedding location can easily be reached on foot<br>
+  from Hotel Van Lendt, otherwise we recommend if you<br>
+  are staying outside of Buldern to hire a car.<br>
+ 
+  There is plenty of free parking on location.
+<br>
+<br>
+<br>
+<p>Celebration & Enjoyment:<br>
+  &hearts;<br>
+We’ll be keeping the celebrations relaxed and joyful, with a limited <br>
+selection of alcoholic beverages and cannabis served responsibly and <br>
+legally. We kindly ask all guests to enjoy responsibly and be considerate <br>
+of others. Our goal is a warm, welcoming atmosphere where everyone can <br>
+celebrate safely and mindfully.
 
-        <div class="accom">
-          <h3>Buldern Guesthouse</h3>
-          <div class="muted">Family-run B&B, limited rooms</div>
-          <div style="margin-top:8px"><a href="#" style="color:var(--accent)">Book / Info</a></div>
-        </div>
+</section>
 
-        <div class="accom">
-          <h3>Nearby City Hotel</h3>
-          <div class="muted">20 minutes by car — good budget option</div>
-          <div style="margin-top:8px"><a href="#" style="color:var(--accent)">Book / Info</a></div>
-        </div>
-      </div>
-    </section>
+  <!-- RSVP -->
+  <section id="rsvp">
+    <h2></h2>
+    <p>We hope you’ll join us on this special day.<br>
+    Please RSVP by 10.03.2026.<br>
+    &hearts;</p>
+    <a class="rsvp-button" href="https://docs.google.com/forms/d/e/1FAIpQLSeetmAH4cesLOqkKq2MIP7J2bO_eZGsd08v54XGEmrCmU65VQ/viewform" target="_blank">
+    Click Here to RSVP
+  </a>
+  
+  </section>
 
-    <section id="rsvp">
-      <h2>RSVP</h2>
-      <p class="lead">Please complete the RSVP form below. Responses are collected in Google Sheets — we will monitor replies and confirm arrangements.</p>
-
-      <div class="card iframe-wrap">
-        <!-- Replace the src URL below with your Google Form embed URL -->
-        <iframe src="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/viewform?embedded=true" title="RSVP Form"></iframe>
-      </div>
-
-      <p class="muted" style="margin-top:10px;font-size:13px">Need to make changes later? Email us at <a href="mailto:hanandkeeley@example.com">hanandkeeley@example.com</a></p>
-    </section>
-
-    <section id="contact">
-      <h2>Additional information</h2>
-      <p class="lead">If you need help with travel or special requests, please contact us directly.</p>
-
-      <div class="card">
-        <strong>Contact</strong>
-        <p class="muted">Email: <a href="mailto:hanandkeeley@example.com">hanandkeeley@example.com</a></p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div style="font-weight:600">Han & Keeley — 23 April 2026</div>
-    <div class="muted">Seeschüne, Buldern</div>
-  </footer>
-
-  <script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const href = a.getAttribute('href');
-        if(href.length>1){
-          e.preventDefault();
-          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
-        }
-      })
-    })
-  </script>
 </body>
 </html>

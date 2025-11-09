@@ -1,0 +1,75 @@
+/* style.css */
+.hero-section {
+  height: 100vh;
+  background-image: url("images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-section h1 {
+  font-size: 4rem;
+  margin: 0;
+  z-index: 1;
+  position: relative;
+  top: -100px;
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  z-index: 1;
+  position: relative;
+  top: -100px;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.1);
+  z-index: 0;
+}
+
+#rsvp {
+  text-align: center;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+}
+
+.map-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rsvp-button {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #c3a663; /* muted gold */
+  color: white;
+  text-decoration: none;
+  border-radius: 12px; /* rounds the edges */
+  font-family: 'Nanum Gothic', sans-serif; /* change to any font you like */
+  font-size: 1.2rem;
+  transition: background 0.3s;
+}
+
+.rsvp-button:hover {
+  background: #b5954f; /* slightly darker on hover */
+}
