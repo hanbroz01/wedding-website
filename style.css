@@ -104,7 +104,7 @@ footer {
 @media (max-width: 768px) {
   .hero-section {
     background-position: top center;
-    background-size: auto 100%;
+    background-size: auto 80%;
   }
 
   .hero-section h1 {
