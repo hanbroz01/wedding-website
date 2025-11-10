@@ -103,17 +103,25 @@ footer {
 /* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
   .hero-section {
-    background-position: top center; /* or try 'center top' */
-    background-size: contain; /* or 'cover' if you prefer */
+    background-position: top center;
+    background-size: cover;
   }
 
   .hero-section h1 {
     font-size: 2.7rem;
-    top: -50px; /* adjust so heading is visible */
+    top: -40px;
   }
 
   .hero-section p {
     font-size: 1.2rem;
-    top: -50px;
+    top: -30px;
+  }
+
+  .photo-strip {
+    height: 40vh;
+  }
+
+  section {
+    padding: 50px 15px;
   }
 }
