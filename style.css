@@ -13,7 +13,7 @@ html {
 /* === Hero Section === */
 .hero-section {
   height: 100vh;
-  background-image: url('images/hero.jpg');
+  background-image: url("images/hero.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -30,7 +30,7 @@ html {
   font-size: 4rem;
   margin: 0;
   font-weight: 300;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   position: relative;
   top: -100px;
 }
@@ -38,7 +38,7 @@ html {
 .hero-section p {
   font-size: 1.5rem;
   margin-top: 10px;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   position: relative;
   top: -100px;
 }
@@ -56,14 +56,14 @@ h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: goldenrod;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
 }
 
 p {
   font-size: 1.2rem;
   line-height: 1.7;
   color: black;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
 }
 
 /* === Photo Strip Sections === */
@@ -73,6 +73,69 @@ p {
   background-position: center;
   margin: 60px 0;
   border-radius: 6px;
+}
+
+/* === Photo Carousel === */
+#photo-carousel {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+#photo-carousel h2 {
+  margin-bottom: 40px;
+}
+
+.carousel {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Navigation buttons */
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(195, 166, 99, 0.7);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  user-select: none;
+  transition: 0.3s ease;
+}
+
+.carousel button:hover {
+  background-color: rgba(168, 140, 82, 0.9);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
 }
 
 /* === RSVP Button === */
@@ -123,5 +186,10 @@ footer {
 
   section {
     padding: 50px 15px;
+  }
+
+  .carousel button {
+    font-size: 1.5rem;
+    padding: 8px;
   }
 }
