@@ -1,0 +1,1229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keeley & Han — Photo Gallery</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* === Layout & Theme Sync === */
+      body {
+        margin: 0;
+        font-family: "Georgia", serif;
+        background: #faf9f7;
+        color: #333;
+        text-align: center;
+      }
+      header {
+        padding: 40px 20px;
+        background: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+      h1,
+      h2 {
+        font-weight: 300;
+        font-family: "Nanum Gothic", sans-serif;
+        color: #c3a663;
+      }
+      .back-link {
+        display: inline-block;
+        margin-top: 15px;
+        color: #888;
+        text-decoration: none;
+        font-family: "Nanum Gothic", sans-serif;
+        font-size: 0.9rem;
+      }
+      .back-link:hover {
+        color: #c3a663;
+      }
+
+      /* === Gateway Screen Styling === */
+      #gatekeeper-screen {
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 40px 20px;
+        background: white;
+        border-radius: 6px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+      input[type="password"] {
+        width: 80%;
+        padding: 12px;
+        margin: 20px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        text-align: center;
+      }
+      .submit-btn {
+        padding: 12px 30px;
+        background: #c3a663;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+      .submit-btn:hover {
+        background: #a88c52;
+      }
+      #error-msg {
+        color: #d9534f;
+        margin-top: 15px;
+        font-family: "Nanum Gothic", sans-serif;
+        display: none;
+      }
+
+      /* === Protected Gallery Grid === */
+      #gallery-content {
+        display: none;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+      .grid-item {
+        overflow: hidden;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        background: #fff;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .grid-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      }
+      .grid-item img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .grid {
+          grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+          gap: 10px;
+        }
+        .grid-item img {
+          height: 150px;
+        }
+        #gatekeeper-screen {
+          margin: 40px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Keeley & Han</h1>
+      <a href="index.html" class="back-link">&larr; Back to Main Invitation</a>
+    </header>
+
+    <!-- PASSWORD GATEKEEPER SCREEN -->
+    <div id="gatekeeper-screen">
+      <h2>Enter Gallery Password</h2>
+      <p
+        style="
+          font-family: &quot;Nanum Gothic&quot;;
+          font-size: 0.95rem;
+          color: #666;
+        "
+      >
+        Please enter the password printed on your invitation to view our photos.
+      </p>
+      <input type="password" id="gallery-pass" placeholder="Password" />
+      <br />
+      <button class="submit-btn" onclick="checkPassword()">
+        Unlock Gallery
+      </button>
+      <p id="error-msg">Incorrect password. Please try again!</p>
+    </div>
+
+    <!-- PROTECTED GALLERY CONTENT -->
+    <div id="gallery-content">
+      <h2>Our Wedding Gallery</h2>
+      <br />&hearts;
+      <p style="font-family: &quot;Nanum Gothic&quot;; margin-bottom: 40px">
+        Click any image to view it full screen
+      </p>
+
+      <div class="grid">
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/FqBBfy8h/WKH-yviiphotography-017.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/FqBBfy8h/WKH-yviiphotography-017.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/VYhJ3HBD/WKH-yviiphotography-023.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/VYhJ3HBD/WKH-yviiphotography-023.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/xKbbY5wS/WKH-yviiphotography-030.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/xKbbY5wS/WKH-yviiphotography-030.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/ycXSjnLx/WKH-yviiphotography-031.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/ycXSjnLx/WKH-yviiphotography-031.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/gMGQmZFV/WKH-yviiphotography-034.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/gMGQmZFV/WKH-yviiphotography-034.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/YTfSQNcM/WKH-yviiphotography-036.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/YTfSQNcM/WKH-yviiphotography-036.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/DDkBMQ10/WKH-yviiphotography-038.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/DDkBMQ10/WKH-yviiphotography-038.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/4Z6q3q5M/WKH-yviiphotography-041.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/4Z6q3q5M/WKH-yviiphotography-041.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/4RMWwWbN/WKH-yviiphotography-046.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/4RMWwWbN/WKH-yviiphotography-046.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/yBhdrkqk/WKH-yviiphotography-048.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/yBhdrkqk/WKH-yviiphotography-048.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/nNzFdrdG/WKH-yviiphotography-051.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/nNzFdrdG/WKH-yviiphotography-051.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Jjm3tYJr/WKH-yviiphotography-056.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Jjm3tYJr/WKH-yviiphotography-056.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/W4XfRkdq/WKH-yviiphotography-061.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/W4XfRkdq/WKH-yviiphotography-061.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/8nT7fRLV/WKH-yviiphotography-070.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/8nT7fRLV/WKH-yviiphotography-070.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/FbBBv02h/WKH-yviiphotography-072.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/FbBBv02h/WKH-yviiphotography-072.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/7tPCPZw0/WKH-yviiphotography-074.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/7tPCPZw0/WKH-yviiphotography-074.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/NnfMpwSR/WKH-yviiphotography-077.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/NnfMpwSR/WKH-yviiphotography-077.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/ndjvNmX/WKH-yviiphotography-082.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/ndjvNmX/WKH-yviiphotography-082.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/xSJY9y73/WKH-yviiphotography-096.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/xSJY9y73/WKH-yviiphotography-096.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/G4gsps4r/WKH-yviiphotography-097.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/G4gsps4r/WKH-yviiphotography-097.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/r2N1cWty/WKH-yviiphotography-102.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/r2N1cWty/WKH-yviiphotography-102.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/DHnY9SY1/WKH-yviiphotography-104.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/DHnY9SY1/WKH-yviiphotography-104.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/VYMNCCX4/WKH-yviiphotography-106.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/VYMNCCX4/WKH-yviiphotography-106.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/b5NYzsyb/WKH-yviiphotography-109.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/b5NYzsyb/WKH-yviiphotography-109.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/m5kgxct4/WKH-yviiphotography-112.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/m5kgxct4/WKH-yviiphotography-112.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/SXZL7QGD/WKH-yviiphotography-116.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/SXZL7QGD/WKH-yviiphotography-116.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/gLdWc5xB/WKH-yviiphotography-117.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/gLdWc5xB/WKH-yviiphotography-117.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/k6GR2czZ/WKH-yviiphotography-119.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/k6GR2czZ/WKH-yviiphotography-119.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/rR6RL5GW/WKH-yviiphotography-121.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/rR6RL5GW/WKH-yviiphotography-121.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Wv8Zc1Hy/WKH-yviiphotography-126.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Wv8Zc1Hy/WKH-yviiphotography-126.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/KcRGzgC9/WKH-yviiphotography-127.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/KcRGzgC9/WKH-yviiphotography-127.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/qF770ySs/WKH-yviiphotography-130.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/qF770ySs/WKH-yviiphotography-130.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/HL0QKj2P/WKH-yviiphotography-131.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/HL0QKj2P/WKH-yviiphotography-131.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/VYtccSHg/WKH-yviiphotography-133.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/VYtccSHg/WKH-yviiphotography-133.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/9HNpM8DY/WKH-yviiphotography-134.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/9HNpM8DY/WKH-yviiphotography-134.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/gZf7BtRw/WKH-yviiphotography-137.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/gZf7BtRw/WKH-yviiphotography-137.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/m52dB4Cw/WKH-yviiphotography-140.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/m52dB4Cw/WKH-yviiphotography-140.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/PZzrgZnJ/WKH-yviiphotography-145.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/PZzrgZnJ/WKH-yviiphotography-145.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/n87rsPj0/WKH-yviiphotography-146.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/n87rsPj0/WKH-yviiphotography-146.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/tMqnK0sF/WKH-yviiphotography-148.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/tMqnK0sF/WKH-yviiphotography-148.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Qv3sBrGn/WKH-yviiphotography-152.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Qv3sBrGn/WKH-yviiphotography-152.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/93815Ghj/WKH-yviiphotography-158.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/93815Ghj/WKH-yviiphotography-158.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/NdYqfj5Z/WKH-yviiphotography-166.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/NdYqfj5Z/WKH-yviiphotography-166.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/zh1nnqJk/WKH-yviiphotography-169.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/zh1nnqJk/WKH-yviiphotography-169.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Cs0jZQTY/WKH-yviiphotography-180.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Cs0jZQTY/WKH-yviiphotography-180.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/359gZfC1/WKH-yviiphotography-187.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/359gZfC1/WKH-yviiphotography-187.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/0pcztLdm/WKH-yviiphotography-189.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/0pcztLdm/WKH-yviiphotography-189.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/LhQnpK5D/WKH-yviiphotography-190.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/LhQnpK5D/WKH-yviiphotography-190.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/VWMdrqDD/WKH-yviiphotography-191.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/VWMdrqDD/WKH-yviiphotography-191.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/67bHMVYC/WKH-yviiphotography-231.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/67bHMVYC/WKH-yviiphotography-231.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/QvpxspY4/WKH-yviiphotography-246.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/QvpxspY4/WKH-yviiphotography-246.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/KzDKVntw/WKH-yviiphotography-268.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/KzDKVntw/WKH-yviiphotography-268.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/pBqNg2tr/WKH-yviiphotography-273.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/pBqNg2tr/WKH-yviiphotography-273.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/kgTBJkT2/WKH-yviiphotography-276.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/kgTBJkT2/WKH-yviiphotography-276.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/gFFQ6QPm/WKH-yviiphotography-278.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/gFFQ6QPm/WKH-yviiphotography-278.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/SDPkbJ44/WKH-yviiphotography-282.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/SDPkbJ44/WKH-yviiphotography-282.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/C3j6QbSL/WKH-yviiphotography-290.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/C3j6QbSL/WKH-yviiphotography-290.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/BKYhKWbn/WKH-yviiphotography-303.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/BKYhKWbn/WKH-yviiphotography-303.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/fVNnSmr5/WKH-yviiphotography-308.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/fVNnSmr5/WKH-yviiphotography-308.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/PsndNyB9/WKH-yviiphotography-310.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/PsndNyB9/WKH-yviiphotography-310.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/pj8wYBXX/WKH-yviiphotography-317.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/pj8wYBXX/WKH-yviiphotography-317.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/QFXRrQV2/WKH-yviiphotography-325.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/QFXRrQV2/WKH-yviiphotography-325.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/YBWF4jyC/WKH-yviiphotography-329.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/YBWF4jyC/WKH-yviiphotography-329.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Z6PL97Lm/WKH-yviiphotography-339.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Z6PL97Lm/WKH-yviiphotography-339.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/h1K5dyFN/WKH-yviiphotography-345.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/h1K5dyFN/WKH-yviiphotography-345.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/jvgRmxn1/WKH-yviiphotography-353.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/jvgRmxn1/WKH-yviiphotography-353.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/gbjWDS7N/WKH-yviiphotography-358.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/gbjWDS7N/WKH-yviiphotography-358.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/BKNzvBS5/WKH-yviiphotography-360.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/BKNzvBS5/WKH-yviiphotography-360.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Xf4vB6Vp/WKH-yviiphotography-362.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Xf4vB6Vp/WKH-yviiphotography-362.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/rKFkLJNR/WKH-yviiphotography-370.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/rKFkLJNR/WKH-yviiphotography-370.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Ddns1KG/WKH-yviiphotography-371.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Ddns1KG/WKH-yviiphotography-371.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/TDHjbB0T/WKH-yviiphotography-375.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/TDHjbB0T/WKH-yviiphotography-375.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/JFsxfVr4/WKH-yviiphotography-383.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/JFsxfVr4/WKH-yviiphotography-383.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/xKFSwQKr/WKH-yviiphotography-391.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/xKFSwQKr/WKH-yviiphotography-391.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/qMVJZpb9/WKH-yviiphotography-392.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/qMVJZpb9/WKH-yviiphotography-392.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Rk6CqJMb/WKH-yviiphotography-393.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Rk6CqJMb/WKH-yviiphotography-393.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/M5QfhwdG/WKH-yviiphotography-395.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/M5QfhwdG/WKH-yviiphotography-395.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Xf6hvfMh/WKH-yviiphotography-402.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Xf6hvfMh/WKH-yviiphotography-402.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/pBZvvdj1/WKH-yviiphotography-404.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/pBZvvdj1/WKH-yviiphotography-404.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Xkv3LXH6/WKH-yviiphotography-405.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Xkv3LXH6/WKH-yviiphotography-405.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Kx8wwmfR/WKH-yviiphotography-406.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Kx8wwmfR/WKH-yviiphotography-406.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/qYD8QC0z/WKH-yviiphotography-441.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/qYD8QC0z/WKH-yviiphotography-441.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Wv987VfP/WKH-yviiphotography-459.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Wv987VfP/WKH-yviiphotography-459.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/g88x3W8/WKH-yviiphotography-471.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/g88x3W8/WKH-yviiphotography-471.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/PkSbZHs/WKH-yviiphotography-478.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/PkSbZHs/WKH-yviiphotography-478.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Fq7JnQ6p/WKH-yviiphotography-487.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Fq7JnQ6p/WKH-yviiphotography-487.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/JRCFVKpt/WKH-yviiphotography-515.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/JRCFVKpt/WKH-yviiphotography-515.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/8LQ6PWNM/WKH-yviiphotography-519.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/8LQ6PWNM/WKH-yviiphotography-519.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/L7fBzgb/WKH-yviiphotography-526.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/L7fBzgb/WKH-yviiphotography-526.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/PvTqrJ9k/WKH-yviiphotography-529.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/PvTqrJ9k/WKH-yviiphotography-529.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/7JFYcPX2/WKH-yviiphotography-537.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/7JFYcPX2/WKH-yviiphotography-537.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/7Jr3C0T2/WKH-yviiphotography-542.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/7Jr3C0T2/WKH-yviiphotography-542.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/KpGds2Rj/WKH-yviiphotography-549.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/KpGds2Rj/WKH-yviiphotography-549.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/35M0LFsk/WKH-yviiphotography-555.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/35M0LFsk/WKH-yviiphotography-555.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/KcFD5r7J/WKH-yviiphotography-570.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/KcFD5r7J/WKH-yviiphotography-570.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/3m9fX4pP/WKH-yviiphotography-577.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/3m9fX4pP/WKH-yviiphotography-577.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/4nsBHZgT/WKH-yviiphotography-601.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/4nsBHZgT/WKH-yviiphotography-601.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/qMfYFC0b/WKH-yviiphotography-617.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/qMfYFC0b/WKH-yviiphotography-617.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/wrgYQtcr/WKH-yviiphotography-651.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/wrgYQtcr/WKH-yviiphotography-651.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/HDK6np62/WKH-yviiphotography-653.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/HDK6np62/WKH-yviiphotography-653.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/jkYgFHp4/WKH-yviiphotography-656.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/jkYgFHp4/WKH-yviiphotography-656.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/23jKTSv7/WKH-yviiphotography-669.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/23jKTSv7/WKH-yviiphotography-669.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/1C8tvs5/WKH-yviiphotography-673.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/1C8tvs5/WKH-yviiphotography-673.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/yBX73fvg/WKH-yviiphotography-682.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/yBX73fvg/WKH-yviiphotography-682.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/JFmms97B/WKH-yviiphotography-687.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/JFmms97B/WKH-yviiphotography-687.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/R4dt3Jwg/WKH-yviiphotography-695.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/R4dt3Jwg/WKH-yviiphotography-695.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/ZP8xc1B/WKH-yviiphotography-725.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/ZP8xc1B/WKH-yviiphotography-725.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/nqdCPhgG/WKH-yviiphotography-728.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/nqdCPhgG/WKH-yviiphotography-728.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/DPchXhvV/WKH-yviiphotography-733.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/DPchXhvV/WKH-yviiphotography-733.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/BKwyZwf2/WKH-yviiphotography-742.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/BKwyZwf2/WKH-yviiphotography-742.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/Ld24Y91M/WKH-yviiphotography-749.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/Ld24Y91M/WKH-yviiphotography-749.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/MkpNxj7f/WKH-yviiphotography-755.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/MkpNxj7f/WKH-yviiphotography-755.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/wN6kqqbw/WKH-yviiphotography-771.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/wN6kqqbw/WKH-yviiphotography-771.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/1ftHj1Ps/WKH-yviiphotography-759.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/1ftHj1Ps/WKH-yviiphotography-759.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+        <div class="grid-item">
+          <a
+            href="https://i.ibb.co/hxDR1Cgn/WKH-yviiphotography-772.jpg"
+            target="_blank"
+            ><img
+              src="https://i.ibb.co/hxDR1Cgn/WKH-yviiphotography-772.jpg"
+              alt="Wedding Photo"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function checkPassword() {
+        const userInput = document.getElementById("gallery-pass").value;
+        const errorMsg = document.getElementById("error-msg");
+        const gatekeeperScreen = document.getElementById("gatekeeper-screen");
+        const galleryContent = document.getElementById("gallery-content");
+
+        // CHOOSE YOUR PASSWORD HERE
+        // Change 'buldern2026' to your preferred access code
+        const correctPassword = "buldern2026";
+
+        if (userInput === correctPassword) {
+          gatekeeperScreen.style.display = "none";
+          galleryContent.style.display = "block";
+        } else {
+          errorMsg.style.display = "block";
+        }
+      }
+
+      // Submit password on hitting Enter
+      document
+        .getElementById("gallery-pass")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            checkPassword();
+          }
+        });
+    </script>
+  </body>
+</html>
